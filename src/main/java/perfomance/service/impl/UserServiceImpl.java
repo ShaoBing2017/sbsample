@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import perfomance.dao.UserDao;
 import perfomance.model.User;
@@ -18,6 +16,15 @@ public class UserServiceImpl implements UserService {
   
     @Autowired  
     private UserDao userDao;  
+    
+//  @Transactional(propagation = Propagation.REQUIRED)  
+  public int insert(User user) {  
+      return  userDao.insert(user);  
+  }
+
+  public void delete(int id) {  
+       userDao.delete(id);  
+  }
       
 //    @Transactional(propagation = Propagation.REQUIRED)  
     public void updateName() {  
@@ -44,6 +51,20 @@ public class UserServiceImpl implements UserService {
 //    @Transactional(propagation = Propagation.REQUIRED)  
     public List<User> getUser() {
     	return userDao.getUser();  
+	}
+
+
+	public User getone(int id) {
+		return userDao.getone(id);  
+	}
+
+
+	public List<User> getall() {
+		return userDao.getall();  
+	}
+
+	public void update(User user) {
+		userDao.update(user);  
 	}
 
 

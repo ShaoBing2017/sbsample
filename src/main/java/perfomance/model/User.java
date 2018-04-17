@@ -1,5 +1,7 @@
 package perfomance.model;
 
+import java.sql.Timestamp;
+
 public class User {
 	
 	private Integer id;
@@ -14,8 +16,28 @@ public class User {
 	private String name;
     private Integer age;
     private String password;
+    public Timestamp getSetdate() {
+		return setdate;
+	}
 
-    public String getName() {
+	public void setSetdate(Timestamp setdate) {
+		this.setdate = setdate;
+	}
+
+	private Timestamp setdate;
+	
+
+	private Timestamp defaultdate;
+
+    public Timestamp getDefaultdate() {
+		return defaultdate;
+	}
+
+	public void setDefaultdate(Timestamp defaultdate) {
+		this.defaultdate = defaultdate;
+	}
+
+	public String getName() {
         return name;
     }
 

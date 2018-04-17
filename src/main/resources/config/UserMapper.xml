@@ -2,6 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="perfomance.dao.UserDao">
 
+
+	<!-- ###############增删改查例子  增删改查例子   增删改查例子##################-->
+	<insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="perfomance.model.User">
+		insert into user(name,age,password,setdate) values(#{name}, #{age}, #{password}, #{setdate})
+	</insert>
+	
+	
+	<!-- 更新名称 -->
+	<select id="getone"  resultType="perfomance.model.User" parameterType="int" >
+		select * from user where id = #{id}
+	</select>
+	
+	<!-- 更新名称 -->
+	<select id="getall"  resultType="hashmap" >
+		select * from user
+	</select>
+	
+	
+	<!-- 更新名称 -->
+	<select id="delete"  parameterType="perfomance.model.User" resultType="int">
+		update user set name = #{name, jdbcType=VARCHAR} where id= #{id,jdbcType=INTEGER}
+	</select>
+	
+	<!-- 更新名称 -->
+	<update id="update" parameterType="map" >
+		update user set name = #{name},age = #{age},password=#{password},setdate=#{setdate},defaultdate=#{defaultdate} where id= #{id}
+	</update>
+	
+	<!-- ###############增删改查例子  增删改查例子   增删改查例子##################-->
+	
 	<!-- 更新名称 -->
 	<select id="select"  resultType="hashmap">
 		select count(id) from user
