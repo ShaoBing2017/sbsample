@@ -12,65 +12,61 @@ import perfomance.service.UserService;
 
 @RestController
 public class UserController {
-	
-	@Autowired  
-    private UserService userService;
-	
-	@GetMapping("/insert")  
-    public int insert(String name, int age, String password,long setdate) {  
-		 User user = new User();
-//		  user.setId(id);
-		  user.setName(name);
-		  user.setAge(age);
-		  user.setPassword(password);
-		  user.setSetdate(new Timestamp(setdate));
-        return userService.insert(user); 
-    } 
 
-	
-	@GetMapping("/delete")  
-    public void insert(int id) {  
-        userService.delete(id); 
-    } 
-	
-	@GetMapping("/update")  
-    public void insert(int id,String name,int age, String password,long setdate, long defaultdate) {  
-		 User user = new User();
-		  user.setId(id);
-		  user.setName(name);
-		  user.setAge(age);
-		  user.setPassword(password);
-		  user.setSetdate(new Timestamp(setdate));
-		  user.setDefaultdate(new Timestamp(defaultdate));
-        userService.update(user); 
-    } 
-	
-	@GetMapping("/updateName")  
-    public void updateName() {  
-        userService.updateName();  
-    } 
-	
-	@GetMapping("/select")  
-    public List<User> select() {  
-		return userService.select();  
-    }  
-	
+	@Autowired
+	private UserService userService;
 
-	@GetMapping("/get")  
-    public List<User> getUser() {  
-        return userService.getUser();  
-    }  
-	
+	@GetMapping("/insert")
+	public int insert(String name, int age, String password, long setdate) {
+		User user = new User();
+		// user.setId(id);
+		user.setName(name);
+		user.setAge(age);
+		user.setPassword(password);
+		user.setSetdate(new Timestamp(setdate));
+		return userService.insert(user);
+	}
 
+	@GetMapping("/delete")
+	public void insert(int id) {
+		userService.delete(id);
+	}
 
-	@GetMapping("/getone")  
-    public User gteone(int id) {  
-        return userService.getone(id);  
-    }  
+	@GetMapping("/update")
+	public void insert(int id, String name, int age, String password, long setdate, long defaultdate) {
+		User user = new User();
+		user.setId(id);
+		user.setName(name);
+		user.setAge(age);
+		user.setPassword(password);
+		user.setSetdate(new Timestamp(setdate));
+		user.setDefaultdate(new Timestamp(defaultdate));
+		userService.update(user);
+	}
 
-	@GetMapping("/getall")  
-    public List<User> getall() {  
-        return userService.getall();  
-    }  
+	@GetMapping("/updateName")
+	public void updateName() {
+		userService.updateName();
+	}
+
+	@GetMapping("/select")
+	public List<User> select() {
+		return userService.select();
+	}
+
+	@GetMapping("/get")
+	public List<User> getUser() {
+		return userService.getUser();
+	}
+
+	@GetMapping("/getone")
+	public User gteone(int id) {
+		return userService.getone(id);
+	}
+
+	@GetMapping("/getall")
+	public List<User> getall() {
+		return userService.getall();
+	}
 
 }
